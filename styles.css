@@ -35,10 +35,6 @@
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
     letter-spacing: var(--letter-spacing-base);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    will-change: transform;
 }
 
 html {
@@ -60,7 +56,6 @@ body {
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    will-change: transform;
 }
 
 body::-webkit-scrollbar {
@@ -135,8 +130,6 @@ section {
     display: flex;
     flex-direction: column;
     position: relative;
-    will-change: transform;
-    transform: translateZ(0);
 }
 
 /* Home Section */
@@ -182,11 +175,11 @@ section {
     border-radius: var(--btn-border-radius);
     font-size: 1.2rem;
     font-weight: 600;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
     animation: fadeInUp 1s ease-out 0.3s backwards;
 }
 
@@ -223,8 +216,6 @@ section {
     filter: blur(60px);
     opacity: 0.1;
     animation: float 6s ease-in-out infinite;
-    will-change: transform;
-    transform: translateZ(0);
 }
 
 .hero-decoration:nth-child(1) {
@@ -318,8 +309,6 @@ section {
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    will-change: transform;
-    transform: translateZ(0);
 }
 
 .audiobook-card:hover {
@@ -561,9 +550,8 @@ section {
 .review-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 0 50px;
-    margin: 2rem 0;
+    gap: clamp(1rem, 3vw, 2rem);
+    padding: 1rem;
 }
 
 .review-card {
@@ -574,9 +562,8 @@ section {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    transform: translateY(-5px);
     gap: 1rem;
-    will-change: transform;
-    transform: translateZ(0);
 }
 
 .review-card:hover {
@@ -632,59 +619,36 @@ section {
     opacity: 0.6;
 }
 
-.review-slider-container {
-    position: relative;
-    width: 100%;
-    padding: 0 20px;
-}
-
 .review-nav-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: clamp(35px, 8vw, 45px);
+    height: clamp(35px, 8vw, 45px);
+    border-radius: 50%;
     background: var(--color-primary);
     color: white;
     border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 24px;
     cursor: pointer;
-    z-index: 10;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
     transition: all 0.3s ease;
+}
+
+.review-prev {
+    left: clamp(10px, 3vw, 20px);
+}
+
+.review-next {
+    right: clamp(10px, 3vw, 20px);
 }
 
 .review-nav-button:hover {
     background: var(--color-secondary);
     transform: translateY(-50%) scale(1.1);
-}
-
-.review-prev {
-    left: -20px;
-}
-
-.review-next {
-    right: -20px;
-}
-
-@media screen and (max-width: 768px) {
-    .review-nav-button {
-        width: 35px;
-        height: 35px;
-        font-size: 20px;
-    }
-    
-    .review-prev {
-        left: 0;
-    }
-    
-    .review-next {
-        right: 0;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -708,7 +672,7 @@ section {
     .review-nav-button {
         width: 35px;
         height: 35px;
-        font-size: 20px;
+        font-size: 1.2rem;
     }
     
     .review-card {
@@ -815,8 +779,6 @@ section {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    will-change: transform;
-    transform: translateZ(0);
 }
 
 .learn-card::before {
@@ -1062,8 +1024,6 @@ section {
     flex-direction: column;
     height: 100%; /* Ensure consistent height */
     position: relative; /* For absolute positioning of button */
-    will-change: transform;
-    transform: translateZ(0);
 }
 
 .event-date {
@@ -1259,8 +1219,6 @@ section {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    will-change: transform;
-    transform: translateZ(0);
 }
 
 .forum-header {
@@ -1324,6 +1282,11 @@ section {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.stat-item:hover .stat-value {
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
 .stat-value {
     display: block;
     font-size: 1.5rem;
@@ -1338,11 +1301,6 @@ section {
     color: var(--color-text-dark);
     opacity: 0.8;
     transition: opacity 0.3s ease;
-}
-
-.stat-item:hover .stat-value {
-    color: var(--color-primary);
-    transform: scale(1.1);
 }
 
 .stat-item:hover .stat-label {
@@ -1623,7 +1581,7 @@ section {
 
 .sound-controls {
     position: fixed;
-    bottom: 80px;
+    bottom: 20px;
     right: 20px;
     z-index: 1000;
 }
@@ -1659,7 +1617,7 @@ section {
 
 @media screen and (max-width: 768px) {
     .sound-controls {
-        bottom: 80px;
+        bottom: 15px;
         right: 15px;
     }
 
@@ -1677,34 +1635,5 @@ section {
 @media (prefers-reduced-motion: reduce) {
     .sound-toggle {
         transition: none;
-    }
-}
-
-/* Performance Optimizations */
-.card, .review-card, .event-card, .forum-card {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.get-started-btn {
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
-}
-
-.get-started-btn,
-.nav-links a,
-.card,
-.review-card,
-.event-card,
-.forum-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .hero-decoration {
-        animation: float 8s ease-in-out infinite;
-        animation-play-state: paused;
-    }
-
-    .section:hover .hero-decoration {
-        animation-play-state: running;
     }
 }
