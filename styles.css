@@ -35,6 +35,10 @@
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
     letter-spacing: var(--letter-spacing-base);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 html {
@@ -56,6 +60,7 @@ body {
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    will-change: transform;
 }
 
 body::-webkit-scrollbar {
@@ -130,6 +135,8 @@ section {
     display: flex;
     flex-direction: column;
     position: relative;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 /* Home Section */
@@ -175,11 +182,11 @@ section {
     border-radius: var(--btn-border-radius);
     font-size: 1.2rem;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
     animation: fadeInUp 1s ease-out 0.3s backwards;
 }
 
@@ -216,6 +223,8 @@ section {
     filter: blur(60px);
     opacity: 0.1;
     animation: float 6s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .hero-decoration:nth-child(1) {
@@ -309,6 +318,8 @@ section {
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .audiobook-card:hover {
@@ -562,8 +573,9 @@ section {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    transform: translateY(-5px);
     gap: 1rem;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .review-card:hover {
@@ -779,6 +791,8 @@ section {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .learn-card::before {
@@ -1024,6 +1038,8 @@ section {
     flex-direction: column;
     height: 100%; /* Ensure consistent height */
     position: relative; /* For absolute positioning of button */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .event-date {
@@ -1219,6 +1235,8 @@ section {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .forum-header {
@@ -1282,11 +1300,6 @@ section {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.stat-item:hover .stat-value {
-    color: var(--color-primary);
-    transform: scale(1.1);
-}
-
 .stat-value {
     display: block;
     font-size: 1.5rem;
@@ -1301,6 +1314,11 @@ section {
     color: var(--color-text-dark);
     opacity: 0.8;
     transition: opacity 0.3s ease;
+}
+
+.stat-item:hover .stat-value {
+    color: var(--color-primary);
+    transform: scale(1.1);
 }
 
 .stat-item:hover .stat-label {
@@ -1635,5 +1653,34 @@ section {
 @media (prefers-reduced-motion: reduce) {
     .sound-toggle {
         transition: none;
+    }
+}
+
+/* Performance Optimizations */
+.card, .review-card, .event-card, .forum-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.get-started-btn {
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+}
+
+.get-started-btn,
+.nav-links a,
+.card,
+.review-card,
+.event-card,
+.forum-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-decoration {
+        animation: float 8s ease-in-out infinite;
+        animation-play-state: paused;
+    }
+
+    .section:hover .hero-decoration {
+        animation-play-state: running;
     }
 }
