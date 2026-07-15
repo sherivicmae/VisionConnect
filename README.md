@@ -2,6 +2,8 @@
 
 ### *"Seeing Possibilities, Connecting Lives"*
 
+![](assets/home.png) 
+
 ## 🌟 Introduction
 
 **VisionConnect** is an accessibility-focused digital platform designed to enhance the online experience of visually impaired individuals. By providing an intuitive, inclusive, and user-friendly environment, the platform aims to bridge the digital divide and promote independence, learning, and community engagement.
