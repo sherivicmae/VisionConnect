@@ -2,9 +2,7 @@
 
 ### *"Seeing Possibilities, Connecting Lives"*
 
-| Home | Audiobooks |
-|------|-----------|
-| ![](assets/home_page.jpg) | ![](assets/audiobooks.png) |
+![](assets/home_page.jpg) 
 
 ## 🌟 Introduction
 
@@ -17,6 +15,7 @@ VisionConnect serves not only individuals with visual impairments, but also educ
 ## ✨ Core Features
 
 ### 📚 Audiobook Library
+![](assets/audiobooks_section.jpg) 
 
 An extensive audiobook collection that offers an immersive and accessible reading experience.
 
@@ -31,6 +30,7 @@ An extensive audiobook collection that offers an immersive and accessible readin
 ---
 
 ### 💬 Community Forum
+![](assets/forums_section.jpg) 
 
 A safe and supportive space where users can connect, share experiences, and learn from one another.
 
@@ -45,6 +45,8 @@ A safe and supportive space where users can connect, share experiences, and lear
 ---
 
 ### 🎓 Learning Resources
+![](assets/learn_section.jpg) 
+
 
 Educational materials specifically designed for visually impaired users.
 
@@ -59,6 +61,8 @@ Educational materials specifically designed for visually impaired users.
 ---
 
 ### 📅 Events Calendar
+![](assets/event_section.jpg) 
+
 
 Stay connected through workshops, community events, and support groups.
 
