@@ -2,7 +2,7 @@
 
 ### *"Seeing Possibilities, Connecting Lives"*
 
-![](assets/home.png) 
+![](assets/home_page.png) 
 
 ## 🌟 Introduction
 
