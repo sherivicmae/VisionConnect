@@ -2,7 +2,9 @@
 
 ### *"Seeing Possibilities, Connecting Lives"*
 
-![](assets/home_page.png) 
+| Home | Audiobooks |
+|------|-----------|
+| ![](assets/home_page.jpg) | ![](assets/audiobooks.png) |
 
 ## 🌟 Introduction
 
